@@ -1,0 +1,8 @@
+{% for comment in comments %}
+    <div id="comment_{{ comment.id}}">
+    {{ comment }}
+    {% with comments=comment.children.all filename='comment_tree.html' %}
+        {% include filename %}
+    {% endwith %}
+    </div>
+{% endfor %}
